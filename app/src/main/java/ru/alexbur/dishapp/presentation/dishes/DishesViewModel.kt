@@ -100,7 +100,7 @@ class DishesViewModel(
     }
 
     private fun updateDishes(it: Dishes) {
-        updateDishes(it.dishes.map { dish -> DishEntity(dish.id, dish.name) })
+        updateDishes(it.dishes.map { dish -> DishEntity(dish.id, dish.name, dish.price, dish.pictureUrl) })
     }
 
     private fun updateDishes(data: List<DishEntity>) {

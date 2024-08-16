@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.alexbur.dishapp.databinding.ItemDishBinding
 import ru.alexbur.dishapp.presentation.dishes.entity.DishEntity
+import ru.alexbur.dishapp.utils.loadImage
 
 class DishViewHolder(
     private val binding: ItemDishBinding
@@ -22,6 +23,8 @@ class DishViewHolder(
     fun onBind(entity: DishEntity) = with(binding) {
         tvDishName.text = entity.name
         checkbox.isChecked = entity.isSelected
+        tvPrice.text = entity.price
+        ivPicture.loadImage(entity.url)
     }
 
     fun onBindWithPayload(isSelected: Boolean) = with(binding) {

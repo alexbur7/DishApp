@@ -12,12 +12,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import com.bumptech.glide.Glide
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import ru.alexbur.dishapp.databinding.FragmentDishDetailBinding
 import ru.alexbur.dishapp.di.DishComponent
 import ru.alexbur.dishapp.utils.ViewEvent
+import ru.alexbur.dishapp.utils.loadImage
 import javax.inject.Inject
 
 class DishDetailFragment : Fragment() {
@@ -92,6 +92,6 @@ class DishDetailFragment : Fragment() {
         tvDishName.text = content.name
         tvDishDescription.text = content.description
         tvDishPrice.text = content.price
-        Glide.with(requireContext()).load(content.pictureUrl).into(ivPicture)
+        ivPicture.loadImage(content.pictureUrl)
     }
 }
